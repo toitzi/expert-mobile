@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.expert.oauth</string>
+            </array>
+            <key>CFBundleURLName</key>
+            <string>OAuth Callback</string>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+        </dict>
+    </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>https</string>
+        <string>http</string>
+    </array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>localhost</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+            </dict>
+        </dict>
+    </dict>
+    <key>NSAuthenticationServicesUsageDescription</key>
+    <string>This app uses authentication services to sign you in securely</string>
+</dict>
+</plist>
