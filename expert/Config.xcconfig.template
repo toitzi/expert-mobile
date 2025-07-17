@@ -1,0 +1,15 @@
+// Configuration values for the expert app
+// Copy this file to Config.xcconfig and fill in your values
+// DO NOT commit Config.xcconfig to version control
+
+// OAuth Configuration
+OAUTH_ISSUER = your-oauth-server-url
+OAUTH_CLIENT_ID = your-client-id
+OAUTH_REDIRECT_SCHEME = com.expert.oauth
+OAUTH_REDIRECT_PATH = callback
+
+// API Configuration
+API_RESOURCE_SERVER_URL = your-api-server-url
+
+// OAuth Scopes (space-separated)
+OAUTH_SCOPES = openid profile email

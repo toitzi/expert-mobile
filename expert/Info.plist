@@ -39,5 +39,23 @@
 	</dict>
 	<key>NSAuthenticationServicesUsageDescription</key>
 	<string>This app uses authentication services to sign you in securely</string>
+	<key>OAuthConfiguration</key>
+	<dict>
+		<key>Issuer</key>
+		<string>$(OAUTH_ISSUER)</string>
+		<key>ClientID</key>
+		<string>$(OAUTH_CLIENT_ID)</string>
+		<key>RedirectScheme</key>
+		<string>$(OAUTH_REDIRECT_SCHEME)</string>
+		<key>RedirectPath</key>
+		<string>$(OAUTH_REDIRECT_PATH)</string>
+		<key>Scopes</key>
+		<string>$(OAUTH_SCOPES)</string>
+	</dict>
+	<key>APIConfiguration</key>
+	<dict>
+		<key>ResourceServerURL</key>
+		<string>$(API_RESOURCE_SERVER_URL)</string>
+	</dict>
 </dict>
 </plist>

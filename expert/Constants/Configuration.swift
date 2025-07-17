@@ -25,16 +25,44 @@ struct Configuration {
         let resourceServerURL: URL
     }
     
-    let oauth = OAuth(
-        issuer: URL(string: "http://localhost:3000")!,
-        clientID: "9f640cbf-9637-44cd-86d1-2363cdfab1ca",
-        redirectURI: "com.expert.oauth://callback",
-        scopes: ["openid", "profile", "email"]
-    )
+    let oauth: OAuth
+    let api: API
     
-    let api = API(
-        resourceServerURL: URL(string: "http://localhost:3000")!
-    )
-    
-    private init() {}
+    private init() {
+        guard let infoPlist = Bundle.main.infoDictionary,
+              let oauthConfig = infoPlist["OAuthConfiguration"] as? [String: Any],
+              let apiConfig = infoPlist["APIConfiguration"] as? [String: Any] else {
+            fatalError("Configuration not found in Info.plist. Please ensure Config.xcconfig is properly set up.")
+        }
+        
+        // OAuth Configuration
+        guard let issuerString = oauthConfig["Issuer"] as? String,
+              let issuerURL = URL(string: issuerString),
+              let clientID = oauthConfig["ClientID"] as? String,
+              let redirectScheme = oauthConfig["RedirectScheme"] as? String,
+              let redirectPath = oauthConfig["RedirectPath"] as? String,
+              let scopesString = oauthConfig["Scopes"] as? String else {
+            fatalError("Invalid OAuth configuration in Info.plist")
+        }
+        
+        let redirectURI = "\(redirectScheme)://\(redirectPath)"
+        let scopes = scopesString.split(separator: " ").map(String.init)
+        
+        self.oauth = OAuth(
+            issuer: issuerURL,
+            clientID: clientID,
+            redirectURI: redirectURI,
+            scopes: scopes
+        )
+        
+        // API Configuration
+        guard let resourceServerURLString = apiConfig["ResourceServerURL"] as? String,
+              let resourceServerURL = URL(string: resourceServerURLString) else {
+            fatalError("Invalid API configuration in Info.plist")
+        }
+        
+        self.api = API(
+            resourceServerURL: resourceServerURL
+        )
+    }
 }
