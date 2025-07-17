@@ -20,3 +20,44 @@
 "common.loading" = "Laden...";
 "common.error" = "Fehler";
 "common.ok" = "OK";
+
+/* Home Screen */
+"home.hello" = "Hallo";
+"home.good_morning" = "Guten Morgen";
+"home.good_afternoon" = "Guten Tag";
+"home.good_evening" = "Guten Abend";
+"home.findings" = "Befunde";
+"home.open_invoices" = "Offene Rechnungen";
+"home.request_finding" = "Befund anfordern";
+"home.request_finding_subtitle" = "Neue Befundanfrage erstellen";
+"home.faq" = "FAQ";
+"home.faq_subtitle" = "Antworten auf häufige Fragen";
+
+/* Promo Carousel */
+"home.promo1_title" = "Schnelle Befundanalyse";
+"home.promo1_subtitle" = "Erhalten Sie Expertenbefunde innerhalb von 24 Stunden";
+"home.promo2_title" = "Fortschritt verfolgen";
+"home.promo2_subtitle" = "Überwachen Sie Ihre Gesundheit mit detaillierten Einblicken";
+"home.promo3_title" = "Sofortige Benachrichtigungen";
+"home.promo3_subtitle" = "Bleiben Sie mit Echtzeit-Updates zu Ihren Befunden informiert";
+
+/* Settings Screen */
+"settings.account" = "Konto";
+"settings.my_profile" = "Mein Profil";
+"settings.payment_methods" = "Zahlungsmethoden";
+"settings.address" = "Adresse";
+"settings.general" = "Allgemein";
+"settings.notifications" = "Benachrichtigungen";
+"settings.about" = "Über";
+"settings.version" = "Version";
+"settings.help_support" = "Hilfe & Support";
+"settings.terms_of_service" = "Nutzungsbedingungen";
+"settings.privacy_policy" = "Datenschutzrichtlinie";
+"settings.logout" = "Abmelden";
+"settings.logout_confirmation_title" = "Abmelden";
+"settings.logout_confirmation_message" = "Möchten Sie sich wirklich abmelden?";
+
+/* Splash Screen */
+"splash.welcome" = "Willkommen bei";
+"splash.expert_by_ers" = "Expert von ERS";
+"splash.login_with_xcoorp" = "Mit XCoorp ID anmelden";

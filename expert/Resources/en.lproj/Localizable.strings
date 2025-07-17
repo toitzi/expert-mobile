@@ -20,3 +20,44 @@
 "common.loading" = "Loading...";
 "common.error" = "Error";
 "common.ok" = "OK";
+
+/* Home Screen */
+"home.hello" = "Hello";
+"home.good_morning" = "Good morning";
+"home.good_afternoon" = "Good afternoon";
+"home.good_evening" = "Good evening";
+"home.findings" = "Findings";
+"home.open_invoices" = "Open Invoices";
+"home.request_finding" = "Request Finding";
+"home.request_finding_subtitle" = "Create a new finding request";
+"home.faq" = "FAQ";
+"home.faq_subtitle" = "Get answers to common questions";
+
+/* Promo Carousel */
+"home.promo1_title" = "Fast Finding Analysis";
+"home.promo1_subtitle" = "Get expert medical findings analyzed within 24 hours";
+"home.promo2_title" = "Track Your Progress";
+"home.promo2_subtitle" = "Monitor your health journey with detailed insights";
+"home.promo3_title" = "Instant Notifications";
+"home.promo3_subtitle" = "Stay updated with real-time alerts on your findings";
+
+/* Settings Screen */
+"settings.account" = "Account";
+"settings.my_profile" = "My Profile";
+"settings.payment_methods" = "Payment Methods";
+"settings.address" = "Address";
+"settings.general" = "General";
+"settings.notifications" = "Notifications";
+"settings.about" = "About";
+"settings.version" = "Version";
+"settings.help_support" = "Help & Support";
+"settings.terms_of_service" = "Terms of Service";
+"settings.privacy_policy" = "Privacy Policy";
+"settings.logout" = "Logout";
+"settings.logout_confirmation_title" = "Logout";
+"settings.logout_confirmation_message" = "Are you sure you want to logout?";
+
+/* Splash Screen */
+"splash.welcome" = "Welcome to";
+"splash.expert_by_ers" = "Expert by ERS";
+"splash.login_with_xcoorp" = "Login with XCoorp ID";

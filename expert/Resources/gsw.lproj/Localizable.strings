@@ -20,3 +20,44 @@
 "common.loading" = "Am Lade...";
 "common.error" = "Fähler";
 "common.ok" = "OK";
+
+/* Home Screen */
+"home.hello" = "Hoi";
+"home.good_morning" = "Guete Morge";
+"home.good_afternoon" = "Guete Tag";
+"home.good_evening" = "Guete Aabig";
+"home.findings" = "Befund";
+"home.open_invoices" = "Offeni Rechnige";
+"home.request_finding" = "Befund aafordere";
+"home.request_finding_subtitle" = "Neui Befundaafrag erstelle";
+"home.faq" = "FAQ";
+"home.faq_subtitle" = "Antworte uf hüfigi Froge";
+
+/* Promo Carousel */
+"home.promo1_title" = "Schnelli Befundanalyse";
+"home.promo1_subtitle" = "Bechömmed Expertebefund innerhalb vo 24 Stund";
+"home.promo2_title" = "Fortschritt verfolge";
+"home.promo2_subtitle" = "Überwached Ihri Gsundheit mit detaillierte Iblick";
+"home.promo3_title" = "Sofortigi Benachrichtigunge";
+"home.promo3_subtitle" = "Blibed mit Echtziit-Updates zu Ihre Befund informiert";
+
+/* Settings Screen */
+"settings.account" = "Konto";
+"settings.my_profile" = "Mis Profil";
+"settings.payment_methods" = "Zahligsmethode";
+"settings.address" = "Adresse";
+"settings.general" = "Allgemein";
+"settings.notifications" = "Benachrichtigunge";
+"settings.about" = "Über";
+"settings.version" = "Version";
+"settings.help_support" = "Hilf & Support";
+"settings.terms_of_service" = "Nutzigsbedingige";
+"settings.privacy_policy" = "Dateschutzrichtlinie";
+"settings.logout" = "Abmelde";
+"settings.logout_confirmation_title" = "Abmelde";
+"settings.logout_confirmation_message" = "Wänd Sie sich würklich abmelde?";
+
+/* Splash Screen */
+"splash.welcome" = "Willkomme bi";
+"splash.expert_by_ers" = "Expert vo ERS";
+"splash.login_with_xcoorp" = "Mit XCoorp ID aamelde";

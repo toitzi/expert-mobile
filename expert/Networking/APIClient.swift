@@ -123,6 +123,14 @@ extension APIClient {
         return try await execute(request)
     }
     
+    /// Convenience method for GET requests with JSON decoding
+    func get<T: Decodable>(_ path: String, type: T.Type) async throws -> T {
+        let (data, _) = try await get(path: path)
+        
+        let decoder = JSONDecoder()
+        return try decoder.decode(T.self, from: data)
+    }
+    
     /// Convenience method for POST requests
     func post(path: String, body: Data? = nil) async throws -> (Data, URLResponse) {
         guard var request = await createRequest(path: path, method: "POST") else {
@@ -135,6 +143,17 @@ extension APIClient {
         }
         
         return try await execute(request)
+    }
+    
+    /// Convenience method for POST requests with JSON encoding/decoding
+    func post<T: Encodable, R: Decodable>(_ path: String, body: T, responseType: R.Type) async throws -> R {
+        let encoder = JSONEncoder()
+        let bodyData = try encoder.encode(body)
+        
+        let (data, _) = try await post(path: path, body: bodyData)
+        
+        let decoder = JSONDecoder()
+        return try decoder.decode(R.self, from: data)
     }
     
     /// Convenience method for PUT requests
@@ -151,11 +170,30 @@ extension APIClient {
         return try await execute(request)
     }
     
+    /// Convenience method for PUT requests with JSON encoding/decoding
+    func put<T: Encodable, R: Decodable>(_ path: String, body: T, responseType: R.Type) async throws -> R {
+        let encoder = JSONEncoder()
+        let bodyData = try encoder.encode(body)
+        
+        let (data, _) = try await put(path: path, body: bodyData)
+        
+        let decoder = JSONDecoder()
+        return try decoder.decode(R.self, from: data)
+    }
+    
     /// Convenience method for DELETE requests
     func delete(path: String) async throws -> (Data, URLResponse) {
         guard let request = await createRequest(path: path, method: "DELETE") else {
             throw APIError.invalidRequest
         }
         return try await execute(request)
+    }
+    
+    /// Convenience method for DELETE requests with JSON response
+    func delete<T: Decodable>(_ path: String, responseType: T.Type) async throws -> T {
+        let (data, _) = try await delete(path: path)
+        
+        let decoder = JSONDecoder()
+        return try decoder.decode(T.self, from: data)
     }
 }
