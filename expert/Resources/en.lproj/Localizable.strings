@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  expert
+  
+  English Localization
+*/
+
+/* Tab Bar Items */
+"tab.home" = "Home";
+"tab.findings" = "Findings";
+"tab.invoices" = "Invoices";
+"tab.settings" = "Settings";
+
+/* Common */
+"common.cancel" = "Cancel";
+"common.save" = "Save";
+"common.delete" = "Delete";
+"common.edit" = "Edit";
+"common.done" = "Done";
+"common.loading" = "Loading...";
+"common.error" = "Error";
+"common.ok" = "OK";

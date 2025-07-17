@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  expert
+  
+  German Localization
+*/
+
+/* App Display Name */
+"CFBundleDisplayName" = "Expert";

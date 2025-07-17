@@ -19,6 +19,11 @@ class AuthenticationManager: NSObject, ObservableObject {
     @Published var isRefreshing = false
     @Published var currentUser: UserInfo?
     
+    /// The expiry date of the currently stored access token, if available.
+    var tokenExpiryDate: Date? {
+        UserDefaults.standard.object(forKey: "token_expiry") as? Date
+    }
+    
     private let keychainHelper = KeychainHelper.shared
     private let config = Configuration.shared.oauth
     

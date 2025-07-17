@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  expert
+  
+  Swiss German Localization
+*/
+
+/* Tab Bar Items */
+"tab.home" = "Heime";
+"tab.findings" = "Befund";
+"tab.invoices" = "Rechnige";
+"tab.settings" = "Iistellige";
+
+/* Common */
+"common.cancel" = "Abbräche";
+"common.save" = "Speichere";
+"common.delete" = "Lösche";
+"common.edit" = "Bearbeite";
+"common.done" = "Fertig";
+"common.loading" = "Am Lade...";
+"common.error" = "Fähler";
+"common.ok" = "OK";

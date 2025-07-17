@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var authManager = AuthenticationManager.shared
+    
     var body: some View {
-        SplashView()
+        if authManager.isAuthenticated {
+            MainView()
+        } else {
+            SplashView()
+        }
     }
 }
 

@@ -205,6 +205,8 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				gsw,
 			);
 			mainGroup = 8FABBF752E2821A60056AA6B;
 			minimizedProjectReferenceProxies = 1;
@@ -284,6 +286,8 @@
 /* Begin XCBuildConfiguration section */
 		8FABBF9D2E2821A80056AA6B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 8FABBF802E2821A60056AA6B /* expert */;
+			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -348,6 +352,8 @@
 		};
 		8FABBF9E2E2821A80056AA6B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 8FABBF802E2821A60056AA6B /* expert */;
+			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

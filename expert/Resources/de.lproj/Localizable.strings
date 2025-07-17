@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  expert
+  
+  German Localization
+*/
+
+/* Tab Bar Items */
+"tab.home" = "Startseite";
+"tab.findings" = "Befunde";
+"tab.invoices" = "Rechnungen";
+"tab.settings" = "Einstellungen";
+
+/* Common */
+"common.cancel" = "Abbrechen";
+"common.save" = "Speichern";
+"common.delete" = "Löschen";
+"common.edit" = "Bearbeiten";
+"common.done" = "Fertig";
+"common.loading" = "Laden...";
+"common.error" = "Fehler";
+"common.ok" = "OK";
