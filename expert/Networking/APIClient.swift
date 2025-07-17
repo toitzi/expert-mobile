@@ -54,7 +54,7 @@ class APIClient: NSObject, URLSessionTaskDelegate {
                     // Check if still authenticated after refresh
                     if authManager.isAuthenticated {
                         // Retry the request with new token
-                        if var newRequest = await recreateRequest(from: request) {
+                        if let newRequest = await recreateRequest(from: request) {
                             return try await execute(newRequest)
                         }
                     } else {

@@ -15,7 +15,7 @@ struct expertApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onChange(of: scenePhase) { newPhase in
+                .onChange(of: scenePhase) { oldPhase, newPhase in
                     switch newPhase {
                     case .active:
                         // App became active - refresh user info if authenticated
