@@ -66,11 +66,11 @@ struct PromoSlide: View {
                     Text(item.title)
                         .font(.headline)
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(.label))
                     
                     Text(item.subtitle)
                         .font(.subheadline)
-                        .foregroundColor(.white.opacity(0.9))
+                        .foregroundColor(Color(.label).opacity(0.9))
                         .lineLimit(2)
                     
                     Spacer()
@@ -80,7 +80,7 @@ struct PromoSlide: View {
                 
                 Image(systemName: item.icon)
                     .font(.system(size: 60))
-                    .foregroundColor(.white.opacity(0.3))
+                    .foregroundColor(Color(.label).opacity(0.3))
             }
             .padding()
         }

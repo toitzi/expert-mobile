@@ -1,13 +1,14 @@
 //
-//  SettingsView.swift
+//  ProfileSheet.swift
 //  expert
 //
-//  Created by Tobias Oitzinger on 17.07.25.
+//  Created by Tobias Oitzinger on 19.07.25.
 //
 
 import SwiftUI
 
-struct SettingsView: View {
+struct ProfileSheet: View {
+    @Binding var isPresented: Bool
     @State private var notificationsEnabled = true
     @State private var showingLogoutAlert = false
     @StateObject private var authManager = AuthenticationManager.shared
@@ -20,7 +21,7 @@ struct SettingsView: View {
                     NavigationLink(destination: Text("My Profile")) {
                         HStack {
                             Image(systemName: "person.circle.fill")
-                                .foregroundColor(.blue)
+                                .foregroundColor(Color(.blue))
                             Text("settings.my_profile".localized)
                         }
                     }
@@ -28,7 +29,7 @@ struct SettingsView: View {
                     NavigationLink(destination: Text("Payment Methods")) {
                         HStack {
                             Image(systemName: "creditcard.fill")
-                                .foregroundColor(.green)
+                                .foregroundColor(Color(.green))
                             Text("settings.payment_methods".localized)
                         }
                     }
@@ -36,7 +37,7 @@ struct SettingsView: View {
                     NavigationLink(destination: Text("Address")) {
                         HStack {
                             Image(systemName: "location.fill")
-                                .foregroundColor(.orange)
+                                .foregroundColor(Color(.accent))
                             Text("settings.address".localized)
                         }
                     }
@@ -47,7 +48,7 @@ struct SettingsView: View {
                     Toggle(isOn: $notificationsEnabled) {
                         HStack {
                             Image(systemName: "bell.fill")
-                                .foregroundColor(.blue)
+                                .foregroundColor(Color(.blue))
                             Text("settings.notifications".localized)
                         }
                     }
@@ -57,11 +58,11 @@ struct SettingsView: View {
                 Section("settings.about".localized) {
                     HStack {
                         Image(systemName: "info.circle.fill")
-                            .foregroundColor(.blue)
+                            .foregroundColor(Color(.blue))
                         Text("settings.version".localized)
                         Spacer()
                         Text("1.0.0")
-                            .foregroundColor(.secondary)
+                            .foregroundColor(Color(.secondaryLabel))
                     }
                 }
                 
@@ -70,7 +71,7 @@ struct SettingsView: View {
                     Button(action: {}) {
                         HStack {
                             Image(systemName: "questionmark.circle.fill")
-                                .foregroundColor(.blue)
+                                .foregroundColor(Color(.blue))
                             Text("settings.help_support".localized)
                         }
                     }
@@ -78,7 +79,7 @@ struct SettingsView: View {
                     Button(action: {}) {
                         HStack {
                             Image(systemName: "doc.text.fill")
-                                .foregroundColor(.green)
+                                .foregroundColor(Color(.green))
                             Text("settings.terms_of_service".localized)
                         }
                     }
@@ -86,7 +87,7 @@ struct SettingsView: View {
                     Button(action: {}) {
                         HStack {
                             Image(systemName: "lock.fill")
-                                .foregroundColor(.orange)
+                                .foregroundColor(Color(.accent))
                             Text("settings.privacy_policy".localized)
                         }
                     }
@@ -104,12 +105,19 @@ struct SettingsView: View {
                                 .fontWeight(.medium)
                             Spacer()
                         }
-                        .foregroundColor(.red)
+                        .foregroundColor(Color(.red))
                     }
                 }
             }
             .navigationTitle("tab.settings".localized)
             .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("common.done".localized) {
+                        isPresented = false
+                    }
+                }
+            }
             .alert("settings.logout_confirmation_title".localized, isPresented: $showingLogoutAlert) {
                 Button("common.cancel".localized, role: .cancel) { }
                 Button("settings.logout".localized, role: .destructive) {
@@ -119,9 +127,12 @@ struct SettingsView: View {
                 Text("settings.logout_confirmation_message".localized)
             }
         }
+        .presentationDetents([.medium, .large])
+        .presentationDragIndicator(.visible)
+        .presentationCornerRadius(20)
     }
 }
 
 #Preview {
-    SettingsView()
+    ProfileSheet(isPresented: .constant(true))
 }

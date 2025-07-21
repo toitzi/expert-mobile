@@ -76,12 +76,12 @@ struct SplashView: View {
                     Text("Welcome")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(.label))
                     
                     Text("Your Digital Health Assistant,\nAlways at Your Service")
                         .font(.body)
                         .multilineTextAlignment(.center)
-                        .foregroundColor(.white.opacity(0.9))
+                        .foregroundColor(Color(.label).opacity(0.9))
                 }
                 .padding(.bottom, 60)
                 
@@ -106,10 +106,10 @@ struct SplashView: View {
                                 .fontWeight(.medium)
                         }
                     }
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(Color(.accent))
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .background(Color.white)
+                    .background(Color(.label))
                     .cornerRadius(25)
                 }
                 .disabled(authManager.isLoading)

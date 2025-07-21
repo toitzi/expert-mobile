@@ -21,20 +21,6 @@ struct DashboardData: Codable {
     }
 }
 
-struct Finding: Codable, Identifiable {
-    let id: String
-    let title: String
-    let status: String
-    let createdAt: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case status
-        case createdAt = "created_at"
-    }
-}
-
 struct PromoData: Codable, Identifiable {
     let id: String
     let title: String

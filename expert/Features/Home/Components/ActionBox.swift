@@ -21,11 +21,11 @@ struct ActionBox: View {
                     Text(title)
                         .font(.headline)
                         .fontWeight(.semibold)
-                        .foregroundColor(.primary)
+                        .foregroundColor(Color(.label))
                     
                     Text(subtitle)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(Color(.secondaryLabel))
                 }
                 
                 Spacer()
@@ -43,14 +43,14 @@ struct ActionBox: View {
                     
                     Image(systemName: icon)
                         .font(.title3)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(.label))
                 }
             }
             .padding()
             .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(Color(.systemBackground))
+                    .fill(Color(.secondarySystemGroupedBackground))
                     .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 5)
             )
         }

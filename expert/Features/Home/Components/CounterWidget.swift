@@ -27,7 +27,7 @@ struct CounterWidget: View {
                 Text("\(count)")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .foregroundColor(.primary)
+                    .foregroundColor(Color(.label))
                     .animation(.easeInOut(duration: 0.3), value: count)
                 
                 Spacer()
@@ -36,7 +36,7 @@ struct CounterWidget: View {
             HStack {
                 Text(title)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(Color(.secondaryLabel))
                 
                 Spacer()
             }
@@ -45,8 +45,8 @@ struct CounterWidget: View {
         .frame(maxWidth: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color(.systemBackground))
-                .shadow(color: color.opacity(0.2), radius: 10, x: 0, y: 5)
+                .fill(Color(.secondarySystemGroupedBackground))
+                .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 5)
         )
     }
 }
