@@ -21,6 +21,11 @@
 "profile.invoices_notifications" = "Rechnige";
 "profile.invoices_notifications_description" = "Benachrichtige mi, wenn ich e neui Rechnig erhalte";
 "profile.notifications_privacy_notice" = "Mir verknüpfe Ihri Benachrichtigungsistellige mit Ihrem Konto. Sie chönd die Istellige jederziit i Ihrem Konto ändere.";
+"profile.terms_of_service" = "Nutzigsbedingige";
+"profile.privacy_policy" = "Dateschutzrichtlinie";
+"profile.logout" = "Abmelde";
+"profile.logout_confirmation_title" = "Abmelde";
+"profile.logout_confirmation_message" = "Wänd Sie sich würklich abmelde?";
 
 /* Common */
 "common.cancel" = "Abbräche";
@@ -54,13 +59,7 @@
 
 /* Settings Screen */
 "settings.account" = "Konto";
-"settings.payment_methods" = "Zahligsmethode";
 "settings.notifications" = "Benachrichtigunge";
-"settings.terms_of_service" = "Nutzigsbedingige";
-"settings.privacy_policy" = "Dateschutzrichtlinie";
-"settings.logout" = "Abmelde";
-"settings.logout_confirmation_title" = "Abmelde";
-"settings.logout_confirmation_message" = "Wänd Sie sich würklich abmelde?";
 
 /* Splash Screen */
 "splash.welcome" = "Willkomme bi";

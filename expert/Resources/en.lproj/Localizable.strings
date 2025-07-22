@@ -21,6 +21,11 @@
 "profile.invoices_notifications" = "Invoices";
 "profile.invoices_notifications_description" = "Notify me when I receive a new invoice";
 "profile.notifications_privacy_notice" = "We link your notification preferences with your account. You can update these settings at any time from your account.";
+"profile.terms_of_service" = "Terms of Service";
+"profile.privacy_policy" = "Privacy Policy";
+"profile.logout" = "Logout";
+"profile.logout_confirmation_title" = "Logout";
+"profile.logout_confirmation_message" = "Are you sure you want to logout?";
 
 /* Common */
 "common.cancel" = "Cancel";
@@ -54,13 +59,7 @@
 
 /* Settings Screen */
 "settings.account" = "Account";
-"settings.payment_methods" = "Payment Methods";
 "settings.notifications" = "Notifications";
-"settings.terms_of_service" = "Terms of Service";
-"settings.privacy_policy" = "Privacy Policy";
-"settings.logout" = "Logout";
-"settings.logout_confirmation_title" = "Logout";
-"settings.logout_confirmation_message" = "Are you sure you want to logout?";
 
 /* Splash Screen */
 "splash.welcome" = "Welcome to";

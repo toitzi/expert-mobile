@@ -23,13 +23,6 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             List {
-                // Account Section
-                Section {
-                    NavigationLink(destination: Text("Payment Methods")) {
-                        Text("settings.payment_methods".localized)
-                    }
-                }
-                
                 // General Section
                 Section {
                     NavigationLink(destination: NotificationSettingsView()) {
@@ -44,7 +37,7 @@ struct ProfileView: View {
                             UIApplication.shared.open(url)
                         }
                     }) {
-                        Text("settings.terms_of_service".localized)
+                        Text("profile.terms_of_service".localized)
                     }
                     
                     Button(action: {
@@ -52,7 +45,7 @@ struct ProfileView: View {
                             UIApplication.shared.open(url)
                         }
                     }) {
-                        Text("settings.privacy_policy".localized)
+                        Text("profile.privacy_policy".localized)
                     }
                 }
                 
@@ -64,7 +57,7 @@ struct ProfileView: View {
                         HStack {
                             Spacer()
                             Image(systemName: "rectangle.portrait.and.arrow.right")
-                            Text("settings.logout".localized)
+                            Text("profile.logout".localized)
                                 .fontWeight(.medium)
                             Spacer()
                         }
@@ -87,13 +80,13 @@ struct ProfileView: View {
                     .glassEffect()
                 }
             }
-            .alert("settings.logout_confirmation_title".localized, isPresented: $showingLogoutAlert) {
+            .alert("profile.logout_confirmation_title".localized, isPresented: $showingLogoutAlert) {
                 Button("common.cancel".localized, role: .cancel) { }
-                Button("settings.logout".localized, role: .destructive) {
+                Button("profile.logout".localized, role: .destructive) {
                     authManager.logout()
                 }
             } message: {
-                Text("settings.logout_confirmation_message".localized)
+                Text("profile.logout_confirmation_message".localized)
             }
         }
         .presentationDetents([.large])

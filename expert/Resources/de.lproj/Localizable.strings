@@ -21,6 +21,11 @@
 "profile.invoices_notifications" = "Rechnungen";
 "profile.invoices_notifications_description" = "Benachrichtige mich, wenn ich eine neue Rechnung erhalte";
 "profile.notifications_privacy_notice" = "Wir verknüpfen Ihre Benachrichtigungseinstellungen mit Ihrem Konto. Sie können diese Einstellungen jederzeit in Ihrem Konto ändern.";
+"profile.terms_of_service" = "Nutzungsbedingungen";
+"profile.privacy_policy" = "Datenschutzrichtlinie";
+"profile.logout" = "Abmelden";
+"profile.logout_confirmation_title" = "Abmelden";
+"profile.logout_confirmation_message" = "Möchten Sie sich wirklich abmelden?";
 
 /* Common */
 "common.cancel" = "Abbrechen";
@@ -54,13 +59,7 @@
 
 /* Settings Screen */
 "settings.account" = "Konto";
-"settings.payment_methods" = "Zahlungsmethoden";
 "settings.notifications" = "Benachrichtigungen";
-"settings.terms_of_service" = "Nutzungsbedingungen";
-"settings.privacy_policy" = "Datenschutzrichtlinie";
-"settings.logout" = "Abmelden";
-"settings.logout_confirmation_title" = "Abmelden";
-"settings.logout_confirmation_message" = "Möchten Sie sich wirklich abmelden?";
 
 /* Splash Screen */
 "splash.welcome" = "Willkommen bei";
