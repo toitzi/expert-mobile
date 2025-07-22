@@ -12,6 +12,15 @@
 
 /* Profile Screen */
 "profile.title" = "Account";
+"profile.notifications" = "Benachrichtigungen";
+"profile.enable_notifications" = "Benachrichtigungen aktivieren";
+"profile.allow_notifications" = "Benachrichtigungen auf diesem Gerät erlauben";
+"profile.notifications_disabled_help" = "Benachrichtigungen von Expert sind auf diesem Gerät deaktiviert. Ändern Sie die Benachrichtigungseinstellungen, um Benachrichtigungen zu erhalten.";
+"profile.findings_notifications" = "Befunde";
+"profile.findings_notifications_description" = "Benachrichtige mich, wenn ich einen neuen Befund erhalte";
+"profile.invoices_notifications" = "Rechnungen";
+"profile.invoices_notifications_description" = "Benachrichtige mich, wenn ich eine neue Rechnung erhalte";
+"profile.notifications_privacy_notice" = "Wir verknüpfen Ihre Benachrichtigungseinstellungen mit Ihrem Konto. Sie können diese Einstellungen jederzeit in Ihrem Konto ändern.";
 
 /* Common */
 "common.cancel" = "Abbrechen";
@@ -45,12 +54,8 @@
 
 /* Settings Screen */
 "settings.account" = "Konto";
-"settings.my_profile" = "Mein Profil";
 "settings.payment_methods" = "Zahlungsmethoden";
-"settings.address" = "Adresse";
-"settings.general" = "Allgemein";
 "settings.notifications" = "Benachrichtigungen";
-"settings.help_support" = "Hilfe & Support";
 "settings.terms_of_service" = "Nutzungsbedingungen";
 "settings.privacy_policy" = "Datenschutzrichtlinie";
 "settings.logout" = "Abmelden";

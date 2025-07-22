@@ -12,6 +12,15 @@
 
 /* Profile Screen */
 "profile.title" = "Account";
+"profile.notifications" = "Benachrichtigunge";
+"profile.enable_notifications" = "Benachrichtigunge aktiviere";
+"profile.allow_notifications" = "Benachrichtigunge uf dem Grät erlaube";
+"profile.notifications_disabled_help" = "Benachrichtigunge vo Expert sind uf dem Grät deaktiviert. Ändere Sie d'Benachrichtigungsistellige, zum Benachrichtigunge z'erhalte.";
+"profile.findings_notifications" = "Befünd";
+"profile.findings_notifications_description" = "Benachrichtige mi, wenn ich en neue Befund erhalte";
+"profile.invoices_notifications" = "Rechnige";
+"profile.invoices_notifications_description" = "Benachrichtige mi, wenn ich e neui Rechnig erhalte";
+"profile.notifications_privacy_notice" = "Mir verknüpfe Ihri Benachrichtigungsistellige mit Ihrem Konto. Sie chönd die Istellige jederziit i Ihrem Konto ändere.";
 
 /* Common */
 "common.cancel" = "Abbräche";
@@ -45,12 +54,8 @@
 
 /* Settings Screen */
 "settings.account" = "Konto";
-"settings.my_profile" = "Mis Profil";
 "settings.payment_methods" = "Zahligsmethode";
-"settings.address" = "Adresse";
-"settings.general" = "Allgemein";
 "settings.notifications" = "Benachrichtigunge";
-"settings.help_support" = "Hilf & Support";
 "settings.terms_of_service" = "Nutzigsbedingige";
 "settings.privacy_policy" = "Dateschutzrichtlinie";
 "settings.logout" = "Abmelde";

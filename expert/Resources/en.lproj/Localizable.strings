@@ -12,6 +12,15 @@
 
 /* Profile Screen */
 "profile.title" = "Account";
+"profile.notifications" = "Notifications";
+"profile.enable_notifications" = "Enable Notifications";
+"profile.allow_notifications" = "Allow Notifications on this device";
+"profile.notifications_disabled_help" = "Notifications from Expert are disabled on this device. Change the notification Settings to receive notifications.";
+"profile.findings_notifications" = "Findings";
+"profile.findings_notifications_description" = "Notify me when I receive a new finding";
+"profile.invoices_notifications" = "Invoices";
+"profile.invoices_notifications_description" = "Notify me when I receive a new invoice";
+"profile.notifications_privacy_notice" = "We link your notification preferences with your account. You can update these settings at any time from your account.";
 
 /* Common */
 "common.cancel" = "Cancel";
@@ -45,12 +54,8 @@
 
 /* Settings Screen */
 "settings.account" = "Account";
-"settings.my_profile" = "My Profile";
 "settings.payment_methods" = "Payment Methods";
-"settings.address" = "Address";
-"settings.general" = "General";
 "settings.notifications" = "Notifications";
-"settings.help_support" = "Help & Support";
 "settings.terms_of_service" = "Terms of Service";
 "settings.privacy_policy" = "Privacy Policy";
 "settings.logout" = "Logout";

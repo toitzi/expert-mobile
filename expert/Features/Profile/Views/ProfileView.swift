@@ -9,75 +9,50 @@ import SwiftUI
 
 struct ProfileView: View {
     @Binding var isPresented: Bool
-    @State private var notificationsEnabled = true
     @State private var showingLogoutAlert = false
     @StateObject private var authManager = AuthenticationManager.shared
+    
+    private var languageCode: String {
+        let locale = Locale.current
+        let language = locale.language.languageCode?.identifier ?? "en"
+        
+        // Use "de" for German and Swiss German, "en" for everything else
+        return (language == "de" || language == "gsw") ? "de" : "en"
+    }
     
     var body: some View {
         NavigationStack {
             List {
                 // Account Section
-                Section("settings.account".localized) {
-                    NavigationLink(destination: Text("My Profile")) {
-                        HStack {
-                            Image(systemName: "person.circle.fill")
-                                .foregroundColor(Color(.blue))
-                            Text("settings.my_profile".localized)
-                        }
-                    }
-                    
+                Section {
                     NavigationLink(destination: Text("Payment Methods")) {
-                        HStack {
-                            Image(systemName: "creditcard.fill")
-                                .foregroundColor(Color(.green))
-                            Text("settings.payment_methods".localized)
-                        }
-                    }
-                    
-                    NavigationLink(destination: Text("Address")) {
-                        HStack {
-                            Image(systemName: "location.fill")
-                                .foregroundColor(Color(.accent))
-                            Text("settings.address".localized)
-                        }
+                        Text("settings.payment_methods".localized)
                     }
                 }
                 
                 // General Section
-                Section("settings.general".localized) {
-                    Toggle(isOn: $notificationsEnabled) {
-                        HStack {
-                            Image(systemName: "bell.fill")
-                                .foregroundColor(Color(.blue))
-                            Text("settings.notifications".localized)
-                        }
+                Section {
+                    NavigationLink(destination: NotificationSettingsView()) {
+                        Text("profile.notifications".localized)
                     }
                 }
                 
                 // Support Section
                 Section {
-                    Button(action: {}) {
-                        HStack {
-                            Image(systemName: "questionmark.circle.fill")
-                                .foregroundColor(Color(.blue))
-                            Text("settings.help_support".localized)
+                    Button(action: {
+                        if let url = URL(string: "https://expert.emergencyradiology.ch/\(languageCode)/agb") {
+                            UIApplication.shared.open(url)
                         }
+                    }) {
+                        Text("settings.terms_of_service".localized)
                     }
                     
-                    Button(action: {}) {
-                        HStack {
-                            Image(systemName: "doc.text.fill")
-                                .foregroundColor(Color(.green))
-                            Text("settings.terms_of_service".localized)
+                    Button(action: {
+                        if let url = URL(string: "https://expert.emergencyradiology.ch/\(languageCode)/privacy") {
+                            UIApplication.shared.open(url)
                         }
-                    }
-                    
-                    Button(action: {}) {
-                        HStack {
-                            Image(systemName: "lock.fill")
-                                .foregroundColor(Color(.accent))
-                            Text("settings.privacy_policy".localized)
-                        }
+                    }) {
+                        Text("settings.privacy_policy".localized)
                     }
                 }
                 
