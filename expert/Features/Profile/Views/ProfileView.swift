@@ -1,5 +1,5 @@
 //
-//  ProfileSheet.swift
+//  ProfileView.swift
 //  expert
 //
 //  Created by Tobias Oitzinger on 19.07.25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileSheet: View {
+struct ProfileView: View {
     @Binding var isPresented: Bool
     @State private var notificationsEnabled = true
     @State private var showingLogoutAlert = false
@@ -54,18 +54,6 @@ struct ProfileSheet: View {
                     }
                 }
                 
-                // About Section
-                Section("settings.about".localized) {
-                    HStack {
-                        Image(systemName: "info.circle.fill")
-                            .foregroundColor(Color(.blue))
-                        Text("settings.version".localized)
-                        Spacer()
-                        Text("1.0.0")
-                            .foregroundColor(Color(.secondaryLabel))
-                    }
-                }
-                
                 // Support Section
                 Section {
                     Button(action: {}) {
@@ -109,13 +97,19 @@ struct ProfileSheet: View {
                     }
                 }
             }
-            .navigationTitle("tab.settings".localized)
-            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("profile.title".localized)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("common.done".localized) {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
                         isPresented = false
                     }
+                    label: {
+                        Label("common.close".localized, systemImage: "xmark")
+                            .labelStyle(.iconOnly)
+                            .frame(width: 50, height: 50)
+                    }
+                    .glassEffect()
                 }
             }
             .alert("settings.logout_confirmation_title".localized, isPresented: $showingLogoutAlert) {
@@ -127,12 +121,12 @@ struct ProfileSheet: View {
                 Text("settings.logout_confirmation_message".localized)
             }
         }
-        .presentationDetents([.medium, .large])
-        .presentationDragIndicator(.visible)
+        .presentationDetents([.large])
+        .presentationDragIndicator(.hidden)
         .presentationCornerRadius(20)
     }
 }
 
 #Preview {
-    ProfileSheet(isPresented: .constant(true))
+    ProfileView(isPresented: .constant(true))
 }

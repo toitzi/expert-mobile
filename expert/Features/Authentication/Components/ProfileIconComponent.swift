@@ -19,16 +19,16 @@ struct ProfileIconComponent: View {
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     ))
-                    .frame(width: 40, height: 40)
+                    .frame(width: 35, height: 35)
                 
                 Text(userInfo.initials)
-                    .font(.system(size: 40 * 0.4, weight: .semibold))
+                    .font(.system(size: 35 * 0.4, weight: .semibold))
                     .foregroundColor(Color(.label))
             }
         } else {
             Image(systemName: "person.circle.fill")
                 .resizable()
-                .frame(width: 40, height: 40)
+                .frame(width: 35, height: 35)
         }
     }
 }

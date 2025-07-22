@@ -9,14 +9,16 @@
 "tab.home" = "Startseite";
 "tab.findings" = "Befunde";
 "tab.invoices" = "Rechnungen";
-"tab.settings" = "Einstellungen";
+
+/* Profile Screen */
+"profile.title" = "Account";
 
 /* Common */
 "common.cancel" = "Abbrechen";
 "common.save" = "Speichern";
 "common.delete" = "Löschen";
 "common.edit" = "Bearbeiten";
-"common.done" = "Fertig";
+"common.close" = "Schließen";
 "common.loading" = "Laden...";
 "common.error" = "Fehler";
 "common.ok" = "OK";
@@ -48,8 +50,6 @@
 "settings.address" = "Adresse";
 "settings.general" = "Allgemein";
 "settings.notifications" = "Benachrichtigungen";
-"settings.about" = "Über";
-"settings.version" = "Version";
 "settings.help_support" = "Hilfe & Support";
 "settings.terms_of_service" = "Nutzungsbedingungen";
 "settings.privacy_policy" = "Datenschutzrichtlinie";

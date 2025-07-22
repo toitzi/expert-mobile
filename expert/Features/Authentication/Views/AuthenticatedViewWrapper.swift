@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AuthenticatedViewWrapper<Content: View>: View {
     @State private var isInlineTitle = false
+    @State private var showingProfile = false
     let content: () -> Content
 
     var body: some View {
@@ -25,14 +26,21 @@ struct AuthenticatedViewWrapper<Content: View>: View {
             .coordinateSpace(name: "scroll")
             .toolbar {
                 ToolbarItem {
-                    ProfileIconComponent()
-                        .opacity(isInlineTitle ? 0 : 1)
+                    Button(action: {
+                        showingProfile = true
+                    }) {
+                        ProfileIconComponent()
+                            .opacity(isInlineTitle ? 0 : 1)
+                    }
                 }
                 .sharedBackgroundVisibility(.hidden)
             }
             .toolbarBackground(.hidden, for: .navigationBar)
             .animation(.easeInOut(duration: 0.2), value: isInlineTitle)
             .toolbarTitleDisplayMode(.inlineLarge)
+            .sheet(isPresented: $showingProfile) {
+                ProfileView(isPresented: $showingProfile)
+            }
         }
     }
 
