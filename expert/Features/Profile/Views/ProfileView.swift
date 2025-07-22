@@ -22,10 +22,17 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationStack {
-            List {
+            ZStack {
+                Color(UIColor.systemGroupedBackground)
+                    .ignoresSafeArea()
+                
+                List {
                 // General Section
                 Section {
-                    NavigationLink(destination: NotificationSettingsView()) {
+                    NavigationLink(destination: NotificationSettingsView()
+                        .background(Color(UIColor.systemGroupedBackground))
+                        .navigationBarTitleDisplayMode(.inline)
+                    ) {
                         Text("profile.notifications".localized)
                     }
                 }
@@ -64,6 +71,9 @@ struct ProfileView: View {
                         .foregroundColor(Color(.red))
                     }
                 }
+                }
+                .listStyle(.insetGrouped)
+                .scrollContentBackground(.hidden)
             }
             .navigationTitle("profile.title".localized)
             .navigationBarTitleDisplayMode(.inline)
@@ -92,6 +102,7 @@ struct ProfileView: View {
         .presentationDetents([.large])
         .presentationDragIndicator(.hidden)
         .presentationCornerRadius(20)
+        .presentationBackground(Color(UIColor.systemGroupedBackground))
     }
 }
 

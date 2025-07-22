@@ -16,7 +16,11 @@ struct NotificationSettingsView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        List {
+        ZStack {
+            Color(UIColor.systemGroupedBackground)
+                .ignoresSafeArea()
+            
+            List {
             // Only show enable section if notifications are not already enabled
             if !notificationsEnabled {
                 Section {
@@ -65,6 +69,9 @@ struct NotificationSettingsView: View {
                 Text("profile.notifications_privacy_notice".localized)
                     .font(.caption)
                     .foregroundColor(Color(.secondaryLabel))
+            }
+            .listStyle(.insetGrouped)
+            .scrollContentBackground(.hidden)
             }
         }
         .navigationTitle("profile.notifications".localized)
