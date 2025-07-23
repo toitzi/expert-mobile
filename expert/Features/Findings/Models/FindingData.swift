@@ -8,23 +8,27 @@
 import Foundation
 
 struct FindingData: Codable {
-    let findings: [Finding]?
+    let data: [Finding]
+    let meta: MetaData
+
+    var findings: [Finding]? {
+        return data
+    }
     
     enum CodingKeys: String, CodingKey {
-        case findings = "findings"
+        case data
+        case meta
     }
 }
 
 struct Finding: Codable, Identifiable {
-    let id: String
+    let id: Int
     let title: String
-    let status: String
-    let createdAt: String
-    
+    let date: String
+
     enum CodingKeys: String, CodingKey {
         case id
         case title
-        case status
-        case createdAt = "created_at"
+        case date
     }
 }

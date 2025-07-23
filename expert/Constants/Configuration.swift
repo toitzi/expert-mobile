@@ -22,6 +22,7 @@ struct Configuration {
     }
     
     struct API {
+        let idpServerURL: URL
         let resourceServerURL: URL
     }
     
@@ -56,12 +57,15 @@ struct Configuration {
         )
         
         // API Configuration
-        guard let resourceServerURLString = apiConfig["ResourceServerURL"] as? String,
+        guard let idpServerURLString = apiConfig["IDPServerURL"] as? String,
+              let idpServerURL = URL(string: idpServerURLString),
+              let resourceServerURLString = apiConfig["ResourceServerURL"] as? String,
               let resourceServerURL = URL(string: resourceServerURLString) else {
             fatalError("Invalid API configuration in Info.plist")
         }
         
         self.api = API(
+            idpServerURL: idpServerURL,
             resourceServerURL: resourceServerURL
         )
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InvoicesView: View {
     
-    @StateObject private var viewModel = InvoicesViewModel()
+    @ObservedObject var viewModel: InvoicesViewModel
     
     var body: some View {
         VStack(spacing: 16) {
@@ -20,12 +20,9 @@ struct InvoicesView: View {
             Spacer()
         }
         .navigationTitle("tab.invoices".localized)
-        .refreshable {
-            viewModel.refreshData()
-        }
     }
 }
 
 #Preview {
-    InvoicesView()
+    InvoicesView(viewModel: InvoicesViewModel())
 }

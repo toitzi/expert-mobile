@@ -31,7 +31,7 @@ class InvoicesViewModel: ObservableObject {
         Task {
             do {
                 // Fetch dashboard data from API
-                let invoiceData = try await APIClient.shared.get(
+                let invoiceData = try await ResourceAPIClient.shared.get(
                     "/api/invoices",
                     type: InvoiceData.self
                 )
@@ -49,7 +49,7 @@ class InvoicesViewModel: ObservableObject {
         }
     }
     
-    func refreshData() {
+    func refreshData() async {
         loadInvoiceData()
     }
 }

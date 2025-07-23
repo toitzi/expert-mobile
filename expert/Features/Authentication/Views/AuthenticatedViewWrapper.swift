@@ -11,6 +11,12 @@ struct AuthenticatedViewWrapper<Content: View>: View {
     @State private var isInlineTitle = false
     @State private var showingProfile = false
     let content: () -> Content
+    let onRefresh: (() async -> Void)?
+    
+    init(@ViewBuilder content: @escaping () -> Content, onRefresh: (() async -> Void)? = nil) {
+        self.content = content
+        self.onRefresh = onRefresh
+    }
 
     var body: some View {
         NavigationStack {
@@ -22,6 +28,11 @@ struct AuthenticatedViewWrapper<Content: View>: View {
                     content()
                 }
                 .padding(.horizontal)
+            }
+            .refreshable {
+                if let onRefresh = onRefresh {
+                    await onRefresh()
+                }
             }
             .coordinateSpace(name: "scroll")
             .toolbar {

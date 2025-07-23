@@ -34,7 +34,7 @@ class HomeViewModel: ObservableObject {
             
             do {
                 // Fetch dashboard data from API
-                let dashboardData = try await APIClient.shared.get(
+                let dashboardData = try await ResourceAPIClient.shared.get(
                     "/api/dashboard",
                     type: DashboardData.self
                 )
@@ -57,7 +57,7 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    func refreshData() {
+    func refreshData() async {
         loadDashboardData()
     }
     

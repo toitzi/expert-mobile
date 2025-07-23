@@ -1,5 +1,5 @@
 //
-//  APIClient.swift
+//  IDPAPIClient.swift
 //  expert
 //
 //  Created by Tobias Oitzinger on 16.07.25.
@@ -8,8 +8,8 @@
 import Foundation
 
 @MainActor
-class APIClient: NSObject, URLSessionTaskDelegate {
-    static let shared = APIClient()
+class IDPAPIClient: NSObject, URLSessionTaskDelegate {
+    static let shared = IDPAPIClient()
     
     private let authManager = AuthenticationManager.shared
     private let config = Configuration.shared
@@ -25,13 +25,23 @@ class APIClient: NSObject, URLSessionTaskDelegate {
         super.init()
     }
     
-    /// Creates a URLRequest with the resource server base URL and authentication headers
+    /// Creates a URLRequest with the IDP server base URL and authentication headers
     func createRequest(path: String, method: String = "GET") async -> URLRequest? {
         guard let accessToken = await authManager.getValidAccessToken() else {
             return nil
         }
         
-        let url = config.api.resourceServerURL.appendingPathComponent(path)
+        // Split path and query parameters
+        let components = path.split(separator: "?", maxSplits: 1)
+        let pathOnly = String(components[0])
+        let queryString = components.count > 1 ? String(components[1]) : nil
+        
+        // Build URL with proper handling of query parameters
+        var url = config.api.idpServerURL.appendingPathComponent(pathOnly)
+        if let queryString = queryString {
+            url = URL(string: url.absoluteString + "?" + queryString) ?? url
+        }
+        
         var request = URLRequest(url: url)
         request.httpMethod = method
         request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -114,7 +124,7 @@ enum APIError: LocalizedError {
 }
 
 // Extension to make it easier to use with async/await
-extension APIClient {
+extension IDPAPIClient {
     /// Convenience method for GET requests
     func get(path: String) async throws -> (Data, URLResponse) {
         guard let request = await createRequest(path: path, method: "GET") else {

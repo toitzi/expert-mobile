@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SplashView: View {
     @StateObject private var authManager = AuthenticationManager.shared
+    @State private var showSessionExpiredToast = false
     
     var body: some View {
         ZStack {
@@ -119,5 +120,28 @@ struct SplashView: View {
                     .frame(height: 100)
             }
         }
+        .onAppear {
+            if authManager.sessionExpiredMessage != nil {
+                showSessionExpiredToast = true
+                // Clear the message after showing
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    authManager.clearSessionExpiredMessage()
+                }
+            }
+        }
+        .onChange(of: authManager.sessionExpiredMessage) { _, newValue in
+            if newValue != nil {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    showSessionExpiredToast = true
+                }
+                // Clear the message after showing
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    authManager.clearSessionExpiredMessage()
+                }
+            }
+        }
+        .toast(isShowing: $showSessionExpiredToast, 
+               message: authManager.sessionExpiredMessage ?? "auth.session_expired".localized,
+               duration: 3.0)
     }
 }

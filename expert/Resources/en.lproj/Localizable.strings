@@ -65,3 +65,6 @@
 "splash.welcome" = "Welcome to";
 "splash.expert_by_ers" = "Expert by ERS";
 "splash.login_with_xcoorp" = "Login with XCoorp ID";
+
+/* Authentication */
+"auth.session_expired" = "Your session has expired. Please log in again.";

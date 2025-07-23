@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var authManager = AuthenticationManager.shared
+    @StateObject private var findingsViewModel = FindingsViewModel()
+    @StateObject private var homeViewModel = HomeViewModel()
+    @StateObject private var invoicesViewModel = InvoicesViewModel()
 
     var body: some View
     {
@@ -19,21 +22,27 @@ struct ContentView: View {
             if authManager.isAuthenticated {
                 TabView {
                     Tab("tab.home".localized, systemImage: "house.fill") {
-                        AuthenticatedViewWrapper {
-                            HomeView()
-                        }
+                        AuthenticatedViewWrapper(content: {
+                            HomeView(viewModel: homeViewModel)
+                        }, onRefresh: {
+                            await homeViewModel.refreshData()
+                        })
                     }
 
                     Tab("tab.findings".localized, systemImage: "doc.text.magnifyingglass") {
-                        AuthenticatedViewWrapper {
-                            FindingsView()
-                        }
+                        AuthenticatedViewWrapper(content: {
+                            FindingsView(viewModel: findingsViewModel)
+                        }, onRefresh: {
+                            await findingsViewModel.refreshData()
+                        })
                     }
 
                     Tab("tab.invoices".localized, systemImage: "doc.text.fill") {
-                        AuthenticatedViewWrapper {
-                            InvoicesView()
-                        }
+                        AuthenticatedViewWrapper(content: {
+                            InvoicesView(viewModel: invoicesViewModel)
+                        }, onRefresh: {
+                            await invoicesViewModel.refreshData()
+                        })
                     }
                 }
                 .tabBarMinimizeBehavior(.onScrollDown)

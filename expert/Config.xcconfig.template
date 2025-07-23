@@ -9,7 +9,8 @@ OAUTH_REDIRECT_SCHEME = com.expert.oauth
 OAUTH_REDIRECT_PATH = callback
 
 // API Configuration
-API_RESOURCE_SERVER_URL = your-api-server-url
+API_IDP_SERVER_URL = your-idp-server-url
+API_RESOURCE_SERVER_URL = your-resource-server-url
 
 // OAuth Scopes (space-separated)
 OAUTH_SCOPES = openid profile email

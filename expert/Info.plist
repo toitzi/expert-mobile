@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>APIConfiguration</key>
+	<dict>
+		<key>IDPServerURL</key>
+		<string>$(API_IDP_SERVER_URL)</string>
+		<key>ResourceServerURL</key>
+		<string>$(API_RESOURCE_SERVER_URL)</string>
+	</dict>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -24,6 +31,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>expert-backend.test</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
 			<key>localhost</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
@@ -41,21 +55,16 @@
 	<string>This app uses authentication services to sign you in securely</string>
 	<key>OAuthConfiguration</key>
 	<dict>
-		<key>Issuer</key>
-		<string>$(OAUTH_ISSUER)</string>
 		<key>ClientID</key>
 		<string>$(OAUTH_CLIENT_ID)</string>
-		<key>RedirectScheme</key>
-		<string>$(OAUTH_REDIRECT_SCHEME)</string>
+		<key>Issuer</key>
+		<string>$(OAUTH_ISSUER)</string>
 		<key>RedirectPath</key>
 		<string>$(OAUTH_REDIRECT_PATH)</string>
+		<key>RedirectScheme</key>
+		<string>$(OAUTH_REDIRECT_SCHEME)</string>
 		<key>Scopes</key>
 		<string>$(OAUTH_SCOPES)</string>
-	</dict>
-	<key>APIConfiguration</key>
-	<dict>
-		<key>ResourceServerURL</key>
-		<string>$(API_RESOURCE_SERVER_URL)</string>
 	</dict>
 </dict>
 </plist>

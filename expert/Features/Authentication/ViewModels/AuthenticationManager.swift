@@ -18,6 +18,7 @@ class AuthenticationManager: NSObject, ObservableObject {
     @Published var isLoading = false
     @Published var isRefreshing = false
     @Published var currentUser: UserInfo?
+    @Published var sessionExpiredMessage: String?
     
     /// The expiry date of the currently stored access token, if available.
     var tokenExpiryDate: Date? {
@@ -26,6 +27,7 @@ class AuthenticationManager: NSObject, ObservableObject {
     
     private let keychainHelper = KeychainHelper.shared
     private let config = Configuration.shared.oauth
+    private let apiConfig = Configuration.shared.api
     
     private var authSession: ASWebAuthenticationSession?
     private var refreshTask: Task<Void, Error>?
@@ -95,7 +97,7 @@ class AuthenticationManager: NSObject, ObservableObject {
                 throw NSError(domain: "AuthError", code: 1, userInfo: [NSLocalizedDescriptionKey: "No refresh token"])
             }
             
-            let tokenEndpoint = config.issuer.appendingPathComponent("oauth/token")
+            let tokenEndpoint = apiConfig.idpServerURL.appendingPathComponent("oauth/token")
             var request = URLRequest(url: tokenEndpoint)
             request.httpMethod = "POST"
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -151,14 +153,18 @@ class AuthenticationManager: NSObject, ObservableObject {
     
     func fetchUserInfo() async {
         do {
-            let (data, _) = try await APIClient.shared.get(path: "api/user")
+            let (data, _) = try await IDPAPIClient.shared.get(path: "api/user")
             let userInfo = try JSONDecoder().decode(UserInfo.self, from: data)
             currentUser = userInfo
         } catch APIError.authenticationRequired {
             print("Authentication required - logging out")
+            sessionExpiredMessage = "auth.session_expired".localized
             logout()
         } catch {
             print("Failed to fetch user info: \(error)")
+            // If any error occurs while fetching user info, treat it as session expired
+            sessionExpiredMessage = "auth.session_expired".localized
+            logout()
         }
     }
     
@@ -166,7 +172,7 @@ class AuthenticationManager: NSObject, ObservableObject {
         isLoading = true
         
         let authorizationEndpoint = config.issuer.appendingPathComponent("oauth/authorize")
-        let tokenEndpoint = config.issuer.appendingPathComponent("oauth/token")
+        let tokenEndpoint = apiConfig.idpServerURL.appendingPathComponent("oauth/token")
         
         let state = UUID().uuidString
         let codeVerifier = generateCodeVerifier()
@@ -278,6 +284,10 @@ class AuthenticationManager: NSObject, ObservableObject {
         UserDefaults.standard.removeObject(forKey: "token_expiry")
         currentUser = nil
         isAuthenticated = false
+    }
+    
+    func clearSessionExpiredMessage() {
+        sessionExpiredMessage = nil
     }
     
     private func generateCodeVerifier() -> String {

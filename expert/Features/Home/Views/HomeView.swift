@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject private var viewModel = HomeViewModel()
+    @ObservedObject var viewModel: HomeViewModel
     @State private var currentPromoIndex = 0
     
     private let promoTimer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
@@ -65,13 +65,10 @@ struct HomeView: View {
             }
         }
         .navigationTitle("tab.home".localized)
-        .refreshable {
-            viewModel.refreshData()
-        }
     }
 }
 
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: HomeViewModel())
 }
